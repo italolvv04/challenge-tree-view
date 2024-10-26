@@ -69,3 +69,4 @@ https://www.loom.com/share/d819da83def840dfb2fe791956ac49c0?sid=e5a6b6fb-6a22-4c
 - Responsividade
 - Traduções
 - Melhorar performance de renderização da arvore
+- Testes unitários
