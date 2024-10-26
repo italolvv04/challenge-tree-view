@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Challenge Tree View - Tractian
 
-## Getting Started
+Projeto desenvolvido para o desafio de Frontend da empresa [TRACTIAN](https://tractian.com/smart-trac?utm_content=&utm_source=google&utm_medium=cpc&utm_term=&utm_campaign=bra-conversion-smart-cold-pmax-standard&hsa_acc=1812744788&hsa_cam=15917402868&hsa_grp=&hsa_ad=&hsa_src=x&hsa_tgt=&hsa_kw=&hsa_mt=&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=Cj0KCQjwpvK4BhDUARIsADHt9sQLvLhZCTlVX1QFUu22VaOyeE8rnmkGcP6Vn_eqDm4X5AN9t-MPzJQaAls6EALw_wcB).
 
-First, run the development server:
+Este projeto é uma aplicação para visualização de uma estrutura hierárquica dos ativos essenciais para a operação industrial das empresas. A interface exibe uma árvore interativa que organiza e categoriza esses ativos em níveis — componentes, ativos e locais — facilitando a navegação e a gestão detalhada de cada elemento.
+
+
+## Índice
+
+- [Instalação](#instalação)
+- [Execução](#execução)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Deploy](#deploy)
+- [Design no Figma](#design-no-figma)
+
+## Instalação
+
+Para instalar as dependências do projeto, execute:
+
+```bash
+npm install
+# ou
+yarn install
+# ou
+pnpm install
+# ou
+bun install
+```
+
+## Execução
 
 ```bash
 npm run dev
-# or
+# ou
 yarn dev
-# or
+# ou
 pnpm dev
-# or
+# ou
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse http://localhost:3000 no seu navegador para ver o resultado.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tecnologias Utilizadas
+Este projeto foi desenvolvido utilizando as seguintes tecnologias:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Next.js - versão 14.2.15
+- React - versão 18
+- React DOM - versão 18
+- dotenv - versão 16.4.5
+- TypeScript - versão 5
+- Tailwind CSS - versão 3.4.1
+- ESLint
 
-## Learn More
+## Deploy
 
-To learn more about Next.js, take a look at the following resources:
+O projeto está disponível no seguinte link: [Deploy](https://challenge-tree-view.vercel.app)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Design no Figma
+O design do projeto pode ser encontrado no Figma: [Design no Figma](https://www.figma.com/design/F52Yv8RmGoGOYcV9CiuIZ1/%5BCareers%5D-Frontend-Challenge-v2?node-id=0-1&node-type=canvas&t=PpvHK8pvasklTXEZ-0)

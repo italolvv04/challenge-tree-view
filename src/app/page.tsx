@@ -1,101 +1,122 @@
-import Image from "next/image";
+'use client'
+
+import { useState } from 'react'
+import { useCompany } from '@/contexts/companyContext'
+import { useSensor } from '@/contexts/sensorContext'
+import { TreeNode } from '@/interfaces'
+
+import ThunderBolt from '@/assets/ThunderBolt.png'
+import ExclamationCircle from '@/assets/ExclamationCircle.png'
+
+import { FilterLink } from './_components/FilterLink'
+import { TreeView } from './_components/TreeView'
+import { AssetDetails } from './_components/AssetsDetails'
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const { activeCompany, activeCompanyId } = useCompany()
+  const {
+    activeSensor,
+    setActiveSensor,
+    setSensorType,
+    sensorType,
+    setStatus,
+    status,
+  } = useSensor()
+  const [searchTerm, setSearchTerm] = useState('')
+  const [selectedItem, setSelectedItem] = useState<TreeNode | null>(null)
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const handleEnergyFilter = () => {
+    setSensorType(sensorType === 'energy' ? '' : 'energy')
+    setActiveSensor(sensorType === 'energy' ? '' : 'Sensor de Energia')
+    setStatus('')
+  }
+
+  const handleCriticalFilter = () => {
+    setStatus(status === 'alert' ? '' : 'alert')
+    setActiveSensor(status === 'alert' ? '' : 'Crítico')
+    setSensorType('')
+  }
+
+  const sensorLinks = [
+    {
+      name: 'Sensor de Energia',
+      href: '/',
+      imageSrc: ThunderBolt,
+      imageAlt: 'thunderBolt',
+      handleClick: handleEnergyFilter,
+    },
+    {
+      name: 'Crítico',
+      href: '/',
+      imageSrc: ExclamationCircle,
+      imageAlt: 'exclamationCircle',
+      handleClick: handleCriticalFilter,
+    },
+  ]
+
+  return (
+    <div className="w-full h-[53rem] p-2">
+      <div className="w-full mx-auto p-4 pt-0 bg-white h-full border border-gray-300 rounded-tl-md gap-3">
+        <div className="flex justify-between mt-2">
+          <p>
+            <span className="font-semibold font-inter text-xl leading-7 mr-2">
+              Ativos
+            </span>
+            / {activeCompany}
+          </p>
+
+          <div className="flex items-center gap-4">
+            {sensorLinks.map((link) => (
+              <FilterLink
+                key={link.name}
+                href={link.href}
+                iconSrc={link.imageSrc}
+                altText={link.imageAlt}
+                label={link.name}
+                isActive={activeSensor === link.name}
+                handleClick={() => {
+                  setActiveSensor(link.name)
+                  link.handleClick()
+                }}
+                toggleActive={() => {
+                  setActiveSensor(activeSensor === link.name ? '' : link.name)
+                }}
+              />
+            ))}
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        <div className="flex flex-col md:flex-row mt-3">
+          <div className="flex flex-col flex-shrink-0 w-full md:w-[479px] h-[720px]">
+            <input
+              type="text"
+              placeholder="Buscar Ativo ou Local"
+              className="p-2 border border-gray-300 rounded-md w-full"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+
+            <div className="h-full w-full border p-4 overflow-y-auto">
+              {activeCompanyId && (
+                <TreeView
+                  companyId={activeCompanyId}
+                  searchTerm={searchTerm}
+                  sensorType={sensorType}
+                  status={status}
+                  onSelectItem={(item) => {
+                    setSelectedItem({
+                      ...item,
+                      sensorId: item.sensorId,
+                      gatewayId: item.gatewayId,
+                    })
+                  }}
+                />
+              )}
+            </div>
+          </div>
+          <AssetDetails selectedItem={selectedItem} />
+        </div>
+      </div>
     </div>
-  );
+  )
 }
