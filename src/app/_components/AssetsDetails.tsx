@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import { ItemDetailsProps } from '@/interfaces'
 
-import Sensor from '@/assets/Sensor.png'
+import Sensor from '@/assets/sensor.png'
 import Receptor from '@/assets/receptor.png'
 import Motor from '@/assets/motor.png'
-import ElectricIcon from '@/assets/IconElectric.png'
+import ElectricIcon from '@/assets/iconElectric.png'
 import { getAdditionalIcons } from '../utils/icons'
 
 export const AssetDetails = ({ selectedItem }: ItemDetailsProps) => {

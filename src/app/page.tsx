@@ -5,8 +5,8 @@ import { useCompany } from '@/contexts/companyContext'
 import { useSensor } from '@/contexts/sensorContext'
 import { TreeNode } from '@/interfaces'
 
-import ThunderBolt from '@/assets/ThunderBolt.png'
-import ExclamationCircle from '@/assets/ExclamationCircle.png'
+import ThunderBolt from '@/assets/thunderBolt.png'
+import ExclamationCircle from '@/assets/exclamationCircle.png'
 
 import { FilterLink } from './_components/FilterLink'
 import { TreeView } from './_components/TreeView'
