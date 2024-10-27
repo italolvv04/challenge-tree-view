@@ -38,13 +38,17 @@ export const AssetDetails = ({ selectedItem }: ItemDetailsProps) => {
       </div>
       {selectedItem && (
         <>
-          <div className="flex mt-4 gap-6">
-            <div className="w-full md:w-[336px] h-[226px] gap-[10px] rounded-tl-[4px] border">
-              <div>
-                <Image src={Motor} alt="motor" width={336} height={226} />
+          <div className="flex flex-col lg:flex-row mt-4 gap-6">
+            <div className="w-full lg:w-[336px] h-auto lg:h-[226px] gap-[10px] rounded-tl-[4px] border">
+              <div className="w-full h-auto lg:w-[336px] lg:h-[226px] min-w-[150px] min-h-[100px] max-w-[336px] max-h-[226px]">
+                <Image
+                  src={Motor}
+                  alt="motor"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
-            <div className="flex flex-col justify-center">
+            <div className="flex flex-col justify-center mt-4 lg:mt-0">
               <div className="text-left">
                 <div className="font-inter text-[16px] font-medium leading-[24px] mb-2">
                   Tipo do equipamento
@@ -52,7 +56,7 @@ export const AssetDetails = ({ selectedItem }: ItemDetailsProps) => {
                 <span className="font-normal text-[#88929C]">
                   <span> Motor Elétrico ( Trifásico ) </span>
                 </span>
-                <div className="w-[391px] h-0 border-t border-neutral-150 mt-2" />
+                <div className="w-full lg:w-[391px] h-0 border-t border-neutral-150 mt-2" />
               </div>
               <div className="text-left mt-4">
                 <div className="font-inter text-[16px] font-medium leading-[24px] mb-2">

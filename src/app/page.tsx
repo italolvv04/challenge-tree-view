@@ -55,8 +55,8 @@ export default function Home() {
   ]
 
   return (
-    <div className="w-full h-[53rem] p-2">
-      <div className="w-full mx-auto p-4 pt-0 bg-white h-full border border-gray-300 rounded-tl-md gap-3">
+    <div className="w-full h-auto p-2">
+      <div className="w-full mx-auto p-4 pt-0 bg-white md:h-full border border-gray-300 rounded-tl-md gap-3">
         <div className="flex justify-between mt-2">
           <p>
             <span className="font-semibold font-inter text-xl leading-7 mr-2">
