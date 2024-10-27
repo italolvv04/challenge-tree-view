@@ -12,6 +12,8 @@ Este projeto é uma aplicação para visualização de uma estrutura hierárquic
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [Deploy](#deploy)
 - [Design no Figma](#design-no-figma)
+- [Video Demonstrativo](#video-demonstrativo)
+- [Pontos de melhorias](#pontos-de-melhoria)
 
 ## Instalação
 
@@ -58,3 +60,13 @@ O projeto está disponível no seguinte link: [Deploy](https://challenge-tree-vi
 
 ## Design no Figma
 O design do projeto pode ser encontrado no Figma: [Design no Figma](https://www.figma.com/design/F52Yv8RmGoGOYcV9CiuIZ1/%5BCareers%5D-Frontend-Challenge-v2?node-id=0-1&node-type=canvas&t=PpvHK8pvasklTXEZ-0)
+
+## Video Demonstrativo
+https://www.loom.com/share/d819da83def840dfb2fe791956ac49c0?sid=e5a6b6fb-6a22-4c7e-aab5-66e658c809f1
+
+## Pontos de melhorias
+- Tratativas de erros
+- Responsividade
+- Traduções
+- Melhorar performance de renderização da arvore
+- Testes unitários
